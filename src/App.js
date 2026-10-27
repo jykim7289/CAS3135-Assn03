@@ -6,14 +6,12 @@ const BACKEND_BASE_URL = process.env.REACT_APP_BACKEND_URL;
 export default function App() {
   const [xInput, setXInput] = useState('');
   const [yInput, setYInput] = useState('');
-  const [x, setX] = useState('');
-  const [y, setY] = useState('');
   const [sum, setSum] = useState(null);
   const [product, setProduct] = useState(null);
   const [error, setError] = useState(null);
 
   const calculate = async () => {
-    if (xInput === '' || yInput === '' || isNaN(xInput) || isNaN(yInput) {
+    if (xInput === '' || yInput === '' || isNaN(xInput) || isNaN(yInput)) {
       setError('Please enter valid numbers.');
       return;
     }
@@ -30,8 +28,6 @@ export default function App() {
         setSum(data.sum);
         setProduct(data.product);
       } else setError('Failed to fetch result.');
-
-      setX(userInput);
 
     } catch (err) {
       setError('Server error occurred.');
@@ -61,8 +57,8 @@ export default function App() {
 
       <div className="calcResult">
         {error && <p style={{ color: 'red' }}>{error}</p>}
-        {sum !== null && <p>sum({x}) = <strong>{sum}</strong></p>}
-        {product !== null && <p>product({x}) = <strong>{product}</strong></p>}
+        {sum !== null && <p>X + Y = <strong>{sum}</strong></p>}
+        {product !== null && <p>X * Y = <strong>{product}</strong></p>}
       </div>
     </div>
   );
