@@ -26,7 +26,7 @@ export default function App() {
 
       if (data.type === 'success') {
         setSum(data.sum);
-        setProduct(data.product);
+        setProduct(data.prod);
       } else setError('Failed to fetch result.');
 
     } catch (err) {
