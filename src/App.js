@@ -11,15 +11,16 @@ export default function App() {
   const [error, setError] = useState(null);
 
   const calculate = async () => {
+    setError(null);
+    setSum(null);
+    setProduct(null);
+
     if (xInput === '' || yInput === '' || isNaN(xInput) || isNaN(yInput)) {
       setError('Please enter valid numbers.');
       return;
     }
 
-    setError(null);
-    setSum(null);
-    setProduct(null);
-
+    
     try {
       const res = await fetch(`${BACKEND_BASE_URL}/compute?x=${xInput}&y=${yInput}`);
       const data = await res.json();
